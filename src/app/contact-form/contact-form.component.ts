@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-contact-form',
@@ -6,10 +6,15 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent {
-  @ViewChild('myForm') myForm:any;
+  @ViewChild('myForm') myForm!: ElementRef;
+  @ViewChild('nameField') nameField!: ElementRef;
+  @ViewChild('messageField') messageField!: ElementRef;
   sendMail() {
     // action="https://bjoerndaigger.de/send_mail/send_mail.php"
-    console.log('Sending mail', this.myForm);
+    const nameValue = this.nameField.nativeElement.value;
+    const messageValue = this.messageField.nativeElement.value;
+  
+    console.log('Sending mail', nameValue, messageValue);
   }
 }
 
