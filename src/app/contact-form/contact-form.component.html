@@ -1,7 +1,7 @@
-<form (submit)="sendMail()" #myForm>
-    <input type="text" name="name" placeholder="Your name" #nameField>
-    <input type="text" name="message" placeholder="Your message" #messageField>
-    <button>Send message </button>
+<form ngNativeValidate (submit)="sendMail()" #myForm>
+    <input type="text" name="name" placeholder="Your name" #nameField required>
+    <input type="text" name="message" placeholder="Your message" #messageField required>
+    <button #sendButton>Send message </button>
   </form>
 
 
